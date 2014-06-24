@@ -23,7 +23,7 @@ rails g model Product name description:text price:decimal
 ## Create a Products Controller with an index action.  
 
 ```
-$ touch app/controller/products_controller.rb
+$ touch app/controllers/products_controller.rb
 ```
 
 
@@ -57,6 +57,10 @@ In config/routes.rb
   # 'products#index' - Indentifies the Controller and Action to
   # invoke.
 ```
+
+
+__Go to http://localhost:3000/products__  
+You should get a 'Template is missing' error.
 
 #### Create a view for the Products index action. 
 
