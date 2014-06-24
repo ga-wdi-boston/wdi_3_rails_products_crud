@@ -1,2 +1,5 @@
-  Hello from the index.html.erb view. I got here via the controller:
-  <%= params[:controller]} %>, <%= action: {params[:action]} %>
+<ul> Products
+<% @products.each do |product| %>
+  <li>Product <%=product.name%>, price is <%= product.price %></li>
+<% end %>
+</ul>
