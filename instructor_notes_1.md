@@ -122,11 +122,11 @@ Add this to the index action.
 In the index view add.  
 
 ```
-<ul>
-<% @products.each do |product| %>
-  <li>Product <%=product.name%>, price is <%= product.price %></li>
-<% end %>
-</ul>
+  <ul>
+    <% @products.each do |product| %>
+      <li>Product <%=product.name%>, price is <%= product.price %></li>
+    <% end %>
+  </ul>
 ```
 
 This will iterate over all of the products show each one's name and price.
@@ -135,7 +135,7 @@ http://localhost:3000/products
 
 ## LAB: Show all Songs.
 
-Pretty much like the above.
+Pretty much like the above. Create a model, seed songs and show all songs.
 
 A Song will have a title, artist, duration (seconds) and price. 
 
@@ -183,10 +183,10 @@ Pretty much like the above.
 
 Add this to the layout in the body tag.  
 
-```
-<h3>Honest Tom's Products</h3>
-```
 
+```
+ <h3>Honest Tom's Products</h3>
+```
 
 
 ####  What is the yield in the layout file?
