@@ -33,5 +33,6 @@ group :development, :test do
   # Turn off verbose logging of asset requests
   gem 'quiet_assets'
 
+  gem 'faker'
 end
 
