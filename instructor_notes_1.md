@@ -162,7 +162,11 @@ Add a binding.pry in the show action and look at the params hash.
 
 
 1. How is this used in the show action?
-2. How does the new entry in the params hash relate to the rule for this show view?
+2. How does the new entry in the params hash relate to the route for this show view?
+
+
+Oops, add a show view.
+
 
 #### Add show view to show off the product.
 

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # 'products#index' - Indentifies the Controller and Action to
   # invoke.
 
+  get '/products/:id', to: 'products#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
