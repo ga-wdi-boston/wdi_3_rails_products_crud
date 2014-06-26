@@ -32,7 +32,66 @@ _What happens, Why?_
 touch app/views/products/new.html.erb
 ```
 
-Add this to the view.  
+###### Make a HTML form to create this product.
+
+_Note_: Turn of forgery protection for the HTML form ONLY
+In the application_controller.rb 
+
+```
+ # protect_from_forgery with: :exception
+
+```
+
+In the app/views/products/new.html.erb.  
+
+```
+ <p>Create a new Product </p>
+
+ <form action='/products' method='post'>
+   <label> Name
+    <input type="text" id="product_name" name="product[name]"></input>
+   </label>
+   <br>
+   <label> Description
+    <input type="text" id="product_description" name="product[description]"></i\
+nput>
+   </label>
+   <br>
+   <label> Price
+     <input type="text" id="product_price" name="product[price]"></input>
+   </label>
+   <br>
+   <input type='submit' value="Add Product"></input>
+ </form>
+ ```
+
+_Now,fill this in and submit the form._
+
+_The Error is: No route matches [POST] "/products"_  
+
+_Why?_
+
+##### Add the route for this form's post.
+
+In the routes file.   
+
+```
+  # HTTP POST Request to create a product. Uses the form fields to create the product.
+  post '/products', to: 'products#create'
+```
+
+__Still and error__
+__Why?__
+
+Create a skeleton create action. To get rid of error.
+
+```
+def create
+  render text: 'In the create action'
+end
+```
+
+Change the view to use the Rails form_for helper instead of straight HTML!
 
 ```
  <h3>New Product<h3>
@@ -50,29 +109,9 @@ Add this to the view.
   <% end %>
 ```
 
-
-
-_Now,fill this in and submit the form._
-
-_The Error is: No route matches [POST] "/products"_  
-
-_Why?_
-
-NOTE: Make sure that the route for the show action has the 'as' modifier.  
-
-```
-  # NOTE: the as: 'product' will generate a url helper (product_url, product_path)
-  get '/products/:id', to: 'products#show', as: 'product'
-```
+Inspect the form HTML generated here.
 
 #### Implement a the 'create' action
-
-In the routes file.   
-
-```
-  # HTTP POST Request to create a product. Uses the form fields to create the product.
-  post '/products', to: 'products#create'
-```
 
 
 In the products controller 
@@ -80,11 +119,12 @@ In the products controller
 ```
   # POST /products
   def create
-    @product = Product.create(params)
+    @product = Product.new(params)
 
     if @product.save
       # It saved, so lets see this new product
-      render :show, status: :created, location: @product
+      # render :show, status: :created, location: @product
+      redirect_to products_path
     else
       # No worky, try again
       render :new
