@@ -1,24 +1,28 @@
 Rails.application.routes.draw do
 
+  # create all the routes for the Product resource
+  resources :products # , only: [:index, :show]
+
   # GET HTTP Method
+
   # Path is '/products'
   # Route to the ProductsController#index
-  get '/products', to: 'products#index'
+ #  get '/products', to: 'products#index'
 
- # Route to the new action
-  get '/products/new', to: 'products#new'
+ # # Route to the new action
+ #  get '/products/new', to: 'products#new'
 
-  get '/products/:id', to: 'products#show', as: 'product'
+ #  get '/products/:id', to: 'products#show', as: 'product'
 
-  post '/products', to: 'products#create'
+ #  post '/products', to: 'products#create'
   
-  # HTTP GET Request to get the FORM for updating ONE EXISTING product  
-  get '/products/:id/edit', to: 'products#edit', as: 'edit_product'
+ #  # HTTP GET Request to get the FORM for updating ONE EXISTING product  
+ #  get '/products/:id/edit', to: 'products#edit', as: 'edit_product'
 
-  patch '/products/:id', to: 'products#update'
+ #  patch '/products/:id', to: 'products#update'
 
-  # HTTP DELETE Request 
-  delete '/products/:id', to: 'products#destroy'
+ #  # HTTP DELETE Request 
+ #  delete '/products/:id', to: 'products#destroy'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
