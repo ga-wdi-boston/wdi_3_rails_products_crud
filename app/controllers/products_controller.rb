@@ -21,9 +21,9 @@ class ProductsController < ApplicationController
     # Construct, instantiate a new Product instance
     # from the form fields, which live in the params
     # hash.
-    product = Product.new(product_params)
+    @product = Product.new(product_params)
 
-    if product.save
+    if @product.save
       # It saved, so lets see this new product
       # render :show, status: :created, location: @product
       redirect_to products_path
