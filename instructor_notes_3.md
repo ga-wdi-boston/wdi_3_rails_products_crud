@@ -1,31 +1,3 @@
-## Add a Product category
-
-##### Create a category for each product. 
-
-```
-rails g migration AddCategoryToProduct category
-rake db:migrate
-```
-
-Update the seeds.rb to have these product categories.
-(Apparel,Kitchen, Entertainment and Software)
-
-
-_Note: you may have to reset the DB, this will drop, create, migrate and seed the DB._
-
-```
-rake db:reset
-```
-
-
-Update the product_params method in the products controller.  
-
-```
-  params.require(:product).permit([:name, :description, :price, :category])
-```
-
-Update the product views to have a category
-
 ### Add Product Validations
 
 Go to the rails guide for validations. 
