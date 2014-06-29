@@ -32,12 +32,16 @@ class ProductsController < ApplicationController
     end
   end
 
+  # GET /products/:id/edit
   # to UPDATE a product.
   # IT WILL NOT UPDATE A PRODUCT!!!
   def edit
     @product = Product.find(params[:id])
   end
 
+  # PATCH /products/:id (Update a Resource)
+  # OR
+  # PUT /products/:id (Replace a Resource)
   # Update an existing model, Product.
   # ProductsController#update
   def update
@@ -47,7 +51,7 @@ class ProductsController < ApplicationController
     # Using Strong Params 
     # Update this product, Product#update
     if @product.update(product_params)
-      redirect_to @product, notice: "You have updated the #{@product.name}"
+      redirect_to products_path, notice: "You have updated the #{@product.name}"
     else
       # No worky, try again, show me the form you.
       render :edit
